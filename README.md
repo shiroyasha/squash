@@ -1,7 +1,21 @@
 Squa.sh
 =======
 
-A shellscript based squash game.
+This is a simple brakeout/pong like game without bricks, and resembles the 
+game of squash. The game's name is a pun on the fact that it is written
+in pure shellscript. Please enjoy!
+
+The game itself isn't so much fun to play at all, but it was a whole lot of 
+fun to write.
+
+There only two things you can do in the game:
+- move your paddle left or right with the arrow keys
+- quit the game by pressing the `q` key
+
+
+__Note__: I blatantly stole the idea and even the name of the game from 
+[here](http://isquared.nl/blog/2009/04/19/squa.sh/), 
+but I did write the game from scratch.
 
 Install
 =======
