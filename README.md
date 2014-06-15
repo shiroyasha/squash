@@ -3,6 +3,18 @@ Squa.sh
 
 A shellscript based squash game.
 
+Install
+=======
+
+``` sh
+\curl -L https://raw.githubusercontent.com/shiroyasha/squash/master/game.sh > squa.sh
+
+bash squa.sh
+```
+
+Screenshot
+==========
+
 ![Screenshot](https://raw.githubusercontent.com/shiroyasha/squash/master/shot.png)
 
 License
