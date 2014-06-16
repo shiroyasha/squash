@@ -8,14 +8,14 @@ init() {
 
 	screenWidth=$(tput cols)
 	screenHeight=$(tput lines)
-	
+
 	paddleSize=15
 	paddleX=$(($screenWidth/2 + $paddleSize/2))
-	paddleY=$((screenHeight - 1)) 
+	paddleY=$((screenHeight - 1))
 	paddleSpeed=5
 
 	draw_top
-	
+
 	init_ball
 
 	lives=3
@@ -41,20 +41,22 @@ init_ball() {
 }
 
 clean_up_and_exit() {
-	tput clear
+  tput rmso
 	tput cnorm
+  stty sane
+	tput clear
 	exit
 }
 
 move_left() {
-	if [ $(($paddleX - $paddleSpeed)) -ge 0 ]; then 
+	if [ $(($paddleX - $paddleSpeed)) -ge 0 ]; then
 		erase_paddle
 		paddleX=$(($paddleX - $paddleSpeed))
-		draw_paddle	
+		draw_paddle
 	else
 		erase_paddle
 		paddleX=0
-		draw_paddle	
+		draw_paddle
 	fi
 }
 
@@ -93,7 +95,7 @@ erase_ball() {
 
 draw_ball() {
 	tput cup $2 $1
-	echo -n "o"	
+	echo -n "o"
 }
 
 die() {
@@ -129,7 +131,7 @@ update_ball() {
 
 	if [ $ballY -eq $(($paddleY-1)) ]; then
 
-		[ $paddleX -le $ballX ] && 
+		[ $paddleX -le $ballX ] &&
 		[ $(($paddleX + $paddleSize)) -ge $ballX ] &&
 			ballYDir=$((-$ballYDir)) &&
 			score=$(($score + 1)) &&
@@ -137,7 +139,7 @@ update_ball() {
 
 	fi
 
-	[ $ballY -eq $screenHeight ] && die && sleep 1 && init_ball 
+	[ $ballY -eq $screenHeight ] && die && init_ball
 
 	draw_ball $ballX $ballY
 }
@@ -164,7 +166,7 @@ while true; do
 			clean_up_and_exit
 		;;
 	esac
-	
+
 	iter=$((iter+1))
 	if [[ $iter -eq 10 ]]; then
 		update_ball
