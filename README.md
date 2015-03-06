@@ -21,9 +21,9 @@ Install
 =======
 
 ``` sh
-\curl -L https://raw.githubusercontent.com/shiroyasha/squash/master/game.sh > squa.sh
+\curl -L https://raw.githubusercontent.com/shiroyasha/squash/master/game.sh > ~/squa.sh
 
-bash squa.sh
+bash ~/squa.sh
 ```
 
 Screenshot
